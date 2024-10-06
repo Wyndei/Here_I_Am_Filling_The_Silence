@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxybbdcdyq2km"]
+
+[ext_resource type="PackedScene" uid="uid://d1nu7jvqphjed" path="res://scenes/abstract/character.tscn" id="1_cehgw"]
+[ext_resource type="Script" path="res://scripts/CharacterManager.gd" id="1_j8swx"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Characters" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -768.0
+offset_right = 768.0
+offset_bottom = 256.0
+theme_override_constants/h_separation = 256
+theme_override_constants/v_separation = 256
+columns = 6
+script = ExtResource("1_j8swx")
+
+[node name="Character1" parent="Characters" instance=ExtResource("1_cehgw")]
+visible = false
+layout_mode = 2
+
+[node name="Character2" parent="Characters" instance=ExtResource("1_cehgw")]
+visible = false
+layout_mode = 2
+
+[node name="Character3" parent="Characters" instance=ExtResource("1_cehgw")]
+visible = false
+layout_mode = 2
+
+[node name="Character4" parent="Characters" instance=ExtResource("1_cehgw")]
+visible = false
+layout_mode = 2
+
+[node name="Character5" parent="Characters" instance=ExtResource("1_cehgw")]
+visible = false
+layout_mode = 2
+
+[node name="Character6" parent="Characters" instance=ExtResource("1_cehgw")]
+visible = false
+layout_mode = 2

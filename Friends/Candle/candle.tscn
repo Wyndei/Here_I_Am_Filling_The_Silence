@@ -1,0 +1,113 @@
+[gd_scene load_steps=23 format=3 uid="uid://cuqpf77slsrp"]
+
+[ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_okofd"]
+[ext_resource type="Resource" uid="uid://d0q0onnromh4w" path="res://Friends/Candle/Candle.tres" id="2_e7o7h"]
+[ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="3_6qho4"]
+[ext_resource type="ArrayMesh" uid="uid://ol4qeyeomf41" path="res://Friends/Candle/Candle.obj" id="3_gmb31"]
+[ext_resource type="Shader" path="res://VFX/Toon/Toon.gdshader" id="4_e40ku"]
+[ext_resource type="Script" path="res://UI/map_marker.gd" id="4_jh6w4"]
+[ext_resource type="Texture2D" uid="uid://kxsixdj62xe2" path="res://Friends/Candle/Candle.png" id="5_lq684"]
+[ext_resource type="Shader" path="res://VFX/CandleFire.gdshader" id="6_5jqex"]
+[ext_resource type="Texture2D" uid="uid://bfws553iot1kf" path="res://VFX/CandleFire.png" id="7_t4st1"]
+
+[sub_resource type="Gradient" id="Gradient_m28g1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.381818, 0.490909)
+colors = PackedColorArray(0, 0, 0, 1, 0.226707, 0.226707, 0.226707, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_taoyx"]
+gradient = SubResource("Gradient_m28g1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ca8ud"]
+render_priority = 0
+shader = ExtResource("4_e40ku")
+shader_parameter/color = Color(0.77, 0.682477, 0.5313, 1)
+shader_parameter/rim_light = true
+shader_parameter/rim_light_intensity = 0.35
+shader_parameter/surface_texture = ExtResource("5_lq684")
+shader_parameter/light_ramp = SubResource("GradientTexture1D_taoyx")
+
+[sub_resource type="Gradient" id="Gradient_2mr7b"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.0952381, 0.206349, 0.31746)
+colors = PackedColorArray(0, 0, 0, 1, 0.125046, 0.549215, 0.458612, 1, 0.39, 1, 0.989833, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_loc2q"]
+gradient = SubResource("Gradient_2mr7b")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3en8s"]
+frequency = 0.0045
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jbgey"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_3en8s")
+
+[sub_resource type="Gradient" id="Gradient_xwelf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7uvja"]
+frequency = 0.0001
+fractal_type = 2
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6vkce"]
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_xwelf")
+noise = SubResource("FastNoiseLite_7uvja")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dtyg"]
+render_priority = 0
+shader = ExtResource("6_5jqex")
+shader_parameter/flame_texture = ExtResource("7_t4st1")
+shader_parameter/noise = SubResource("NoiseTexture2D_jbgey")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_6vkce")
+shader_parameter/color_gradient = SubResource("GradientTexture1D_loc2q")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dwh13"]
+material = SubResource("ShaderMaterial_2dtyg")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1d8x"]
+size = Vector3(0.5, 1, 0.5)
+
+[node name="Candle" type="StaticBody3D" groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_okofd")
+friend = ExtResource("2_e7o7h")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2.98289, -0.213327, 0, 0.319991, 1.98859, 0, 0.35, 0)
+cast_shadow = 0
+mesh = ExtResource("3_gmb31")
+surface_material_override/0 = SubResource("ShaderMaterial_ca8ud")
+
+[node name="Flame" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -1.49012e-08, 1, 0, 0.202728, 4.65661e-10)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_dwh13")
+
+[node name="OmniLight" type="OmniLight3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.194754, -1.86265e-09)
+light_color = Color(0.65, 0.9125, 1, 1)
+omni_range = 10.0
+omni_attenuation = 0.5
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_v1d8x")
+
+[node name="MapMarker" type="Sprite3D" parent="."]
+visible = false
+layers = 4
+cast_shadow = 0
+modulate = Color(0, 0.0499997, 1, 1)
+pixel_size = 0.001
+billboard = 1
+double_sided = false
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("3_6qho4")
+script = ExtResource("4_jh6w4")

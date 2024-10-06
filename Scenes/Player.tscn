@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddr5uibpboafl"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_qhetf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gpcct"]
+radius = 0.35
+height = 1.6
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_qhetf")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gpcct")

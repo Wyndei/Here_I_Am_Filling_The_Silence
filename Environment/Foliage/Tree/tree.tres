@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://u3gua8m42cqe"]
+
+[ext_resource type="Shader" path="res://VFX/Toon/Toon.gdshader" id="1_x3dul"]
+[ext_resource type="Texture2D" uid="uid://bukte60iax41" path="res://Environment/Foliage/Tree/Tree.png" id="2_41on8"]
+
+[sub_resource type="Gradient" id="Gradient_hn3wk"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.254098, 0.344262)
+colors = PackedColorArray(0, 0, 0, 1, 0.273873, 0.273873, 0.273873, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yqv0l"]
+gradient = SubResource("Gradient_hn3wk")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_x3dul")
+shader_parameter/color = Color(0.51, 0.3196, 0.1836, 1)
+shader_parameter/rim_light = true
+shader_parameter/rim_light_intensity = 0.3
+shader_parameter/surface_texture = ExtResource("2_41on8")
+shader_parameter/light_ramp = SubResource("GradientTexture1D_yqv0l")

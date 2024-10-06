@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Friend" load_steps=3 format=3 uid="uid://d0q0onnromh4w"]
+
+[ext_resource type="Script" path="res://Friends/Resources/Response.gd" id="1_sdosx"]
+[ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="2_tnhd8"]
+
+[resource]
+script = ExtResource("2_tnhd8")
+Name = "Candle"
+Responses = Array[ExtResource("1_sdosx")]([])

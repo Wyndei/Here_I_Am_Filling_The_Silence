@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1nu7jvqphjed"]
+
+[ext_resource type="Script" path="res://scripts/CharacterText.gd" id="1_jhxrx"]
+
+[node name="Character" type="Control"]
+layout_mode = 3
+offset_right = 256.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.685, 1.685)
+script = ExtResource("1_jhxrx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 64.0
+offset_right = 192.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 128.0
+offset_right = 256.0
+offset_bottom = 192.0
+text = "test text"
+horizontal_alignment = 1
+vertical_alignment = 1

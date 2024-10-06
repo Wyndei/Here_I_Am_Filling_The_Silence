@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgw5c8l7hwtgh"]
+
+[ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_n3v4l"]
+[ext_resource type="Resource" uid="uid://dhdk61fegj7eu" path="res://Friends/CarDoor/CarDoor.tres" id="2_xox8a"]
+[ext_resource type="ArrayMesh" uid="uid://sox1mlto3kik" path="res://Friends/CarDoor/CarDoorMesh.tres" id="3_tiea2"]
+[ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="4_7jp2t"]
+[ext_resource type="Script" path="res://UI/map_marker.gd" id="5_1rnpo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nm0vt"]
+size = Vector3(1.83447, 1.86713, 0.5)
+
+[node name="CarDoor" type="StaticBody3D" groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_n3v4l")
+friend = ExtResource("2_xox8a")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.91706, 0.398749, 0, -0.383493, 0.881975, 0.273959, 0.109241, -0.251237, 0.961741, 0, 0.5, 0)
+cast_shadow = 0
+mesh = ExtResource("3_tiea2")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.91706, 0.398749, 0, -0.383493, 0.881975, 0.273959, 0.109241, -0.251237, 0.961741, 0.0358548, 0.503345, -0.000952826)
+shape = SubResource("BoxShape3D_nm0vt")
+
+[node name="MapMarker" type="Sprite3D" parent="."]
+visible = false
+layers = 4
+cast_shadow = 0
+modulate = Color(0, 0.0499997, 1, 1)
+pixel_size = 0.001
+billboard = 1
+double_sided = false
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("4_7jp2t")
+script = ExtResource("5_1rnpo")

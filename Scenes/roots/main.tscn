@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyoshjt8b5wam"]
+
+[ext_resource type="PackedScene" uid="uid://dxybbdcdyq2km" path="res://scenes/abstract/UI.tscn" id="1_nk6th"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kecmk"]
+
+[node name="Main" type="Node3D"]
+
+[node name="MainCamera" type="Camera3D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("1_nk6th")]
+
+[node name="tempPlane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.598966, -1.76098)
+mesh = SubResource("PlaneMesh_kecmk")

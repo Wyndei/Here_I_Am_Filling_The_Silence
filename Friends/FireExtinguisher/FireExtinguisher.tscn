@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddjnnv8dqoig5"]
+
+[ext_resource type="Script" path="res://Friends/FireExtinguisher/fire_extinguisher.gd" id="1_3nja8"]
+[ext_resource type="ArrayMesh" uid="uid://qs3lbu2r23v6" path="res://Friends/FireExtinguisher/FireExtinguisherMesh.tres" id="1_v1lsr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1d8x"]
+<<<<<<< Updated upstream
+size = Vector3(1, 2, 1)
+
+[node name="FireExtinguisher" type="StaticBody3D"]
+collision_layer = 0
+=======
+size = Vector3(0.5, 0.268005, 0.5)
+
+[node name="FireExtinguisher" type="StaticBody3D" groups=["Interactable"]]
+collision_layer = 2
+>>>>>>> Stashed changes
+collision_mask = 0
+script = ExtResource("1_3nja8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = ExtResource("1_v1lsr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_v1d8x")
