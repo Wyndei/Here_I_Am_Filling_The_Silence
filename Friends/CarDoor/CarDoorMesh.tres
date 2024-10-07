@@ -15,7 +15,7 @@ gradient = SubResource("Gradient_8otxq")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ngng"]
 render_priority = 0
 shader = ExtResource("1_mf573")
-shader_parameter/color = Color(0.336631, 0.668136, 0.779014, 1)
+shader_parameter/color = Color(0.189542, 0.441336, 0.523367, 1)
 shader_parameter/rim_light = false
 shader_parameter/rim_light_intensity = 0.5
 shader_parameter/surface_texture = ExtResource("2_38t0t")

@@ -13,7 +13,7 @@ void sky() {
 	
 	vec2 star_mask = EYEDIR.xz+TIME*0.01;
 	
-	float star_value = texture(star_noise,star_mask).r * texture(star_noise,star_mask).r*pow(EYEDIR.y,4.0)*0.01; 
+	float star_value = texture(star_noise,star_mask).r * texture(star_noise2,star_mask).r*pow(EYEDIR.y,4.0)*0.01; 
 	star_value = clamp(star_value,0.0,1.0) * 100.0;
 	
 	COLOR = vec3(color) + star_color * star_value * star_amount;

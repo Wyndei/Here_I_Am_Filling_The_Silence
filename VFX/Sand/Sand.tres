@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c5mtklkpc2d6y"]
+
+[ext_resource type="Shader" path="res://VFX/Sand/Sand.gdshader" id="1_bm1ye"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_bm1ye")
+shader_parameter/dark_tint = null
+shader_parameter/sand_height = 0.5

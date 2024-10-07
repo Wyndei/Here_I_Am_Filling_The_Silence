@@ -16,7 +16,6 @@ var air_con : bool = false
 var flag_count : int = 0
 
 const TREE = preload("res://Environment/Foliage/Tree/tree.tscn")
-
 const FIRE_EXTINGUISHER = preload("res://Friends/FireExtinguisher/FireExtinguisher.tscn")
 const CANDLE = preload("res://Friends/Candle/candle.tscn")
 const BOOK = preload("res://Friends/Book/book.tscn")
@@ -36,7 +35,7 @@ func _on_player_distance_traveled(distance : float):
 	if player_distance >= 10 and !fire_extinguisher:
 		print("Fire Extinguisher spawned")
 		spawn_object(FIRE_EXTINGUISHER)
-		spawn_object(TREE)
+		#spawn_object(TREE) #doesn't spawn a tree, the tree has already been spawned
 		fire_extinguisher = true
 	
 	if player_distance >= 75 and flag_count >= 1 and !candle:
@@ -82,5 +81,5 @@ func spawn_object(object : PackedScene):
 func spawn_tree():
 	pass
 
-func friend_found(friend : Friend):
+func friend_found(_friend : Friend):
 	flag_count += 1

@@ -1,3 +1,479 @@
-[gd_scene format=3 uid="uid://biuyik7rmy4wb"]
+[gd_scene load_steps=45 format=3 uid="uid://biuyik7rmy4wb"]
+
+[ext_resource type="Environment" uid="uid://dy38odtebjlou" path="res://VFX/Environments/Sandstorm.tres" id="1_31u2e"]
+[ext_resource type="Shader" path="res://VFX/Sand/Sand.gdshader" id="1_n3cgn"]
+[ext_resource type="Script" path="res://VFX/Sand/SandPainter.gd" id="2_rnf01"]
+[ext_resource type="PackedScene" uid="uid://d0xa08888e7gm" path="res://Environment/Foliage/Tree/tree.tscn" id="2_wm8mh"]
+[ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="3_03ww5"]
+[ext_resource type="PackedScene" uid="uid://ddr5uibpboafl" path="res://Scenes/Player.tscn" id="3_7eqmk"]
+[ext_resource type="PackedScene" uid="uid://b6fkfj5qpulc5" path="res://EventManager/event_manager.tscn" id="4_20lrs"]
+[ext_resource type="Shader" path="res://VFX/Distortion.gdshader" id="8_udkfa"]
+[ext_resource type="AudioStream" uid="uid://dvcuygtgytn3i" path="res://SFX/Music/windsound.wav" id="9_m5xu2"]
+
+[sub_resource type="Animation" id="Animation_op642"]
+resource_name = "DayNightCycle"
+length = 12.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(4.71239, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sun:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3, 8, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0, 0.0, 1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:ambient_light_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 3, 8, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.858824, 0.447059, 0.564706, 1), Color(0.858824, 0.447059, 0.564706, 1), Color(0.541176, 0.447059, 0.509804, 1), Color(0.541176, 0.447059, 0.509804, 1), Color(0.858824, 0.447059, 0.564706, 1), Color(0.858824, 0.447059, 0.564706, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment:environment:fog_light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 3, 8, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.8967, 0.471635, 0.260657, 1), Color(0.8967, 0.471635, 0.260657, 1), Color(0.87, 0.435, 0.609, 1), Color(0.87, 0.435, 0.609, 1), Color(0.8967, 0.471635, 0.260657, 1), Color(0.8967, 0.471635, 0.260657, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../VFX/HeatDistortion:mesh:material:shader_parameter/alpha")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 3, 8, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0, 0.0, 1.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WorldEnvironment:environment:sky:sky_material:shader_parameter/color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2, 3, 8, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.898039, 0.470588, 0.258824, 1), Color(0.898039, 0.470588, 0.258824, 1), Color(0.870588, 0.435294, 0.607843, 1), Color(0.870588, 0.435294, 0.607843, 1), Color(0.898039, 0.470588, 0.258824, 1), Color(0.898039, 0.470588, 0.258824, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_swxy0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sun:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:ambient_light_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.629992, 0.0741456, 0.245602, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment:environment:fog_light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.8967, 0.471635, 0.260657, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../VFX/HeatDistortion:mesh:material:shader_parameter/alpha")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WorldEnvironment:environment:sky:sky_material:shader_parameter/color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.898039, 0.470588, 0.258824, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0jmx"]
+_data = {
+"DayNightCycle": SubResource("Animation_op642"),
+"RESET": SubResource("Animation_swxy0")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d8e0e"]
+viewport_path = NodePath("Sand/Sand/SandPainter")
+
+[sub_resource type="Gradient" id="Gradient_3s1vq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cb0we"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l50cr"]
+color_ramp = SubResource("Gradient_3s1vq")
+noise = SubResource("FastNoiseLite_cb0we")
+
+[sub_resource type="Gradient" id="Gradient_piscl"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l80u3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jf6mh"]
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_piscl")
+noise = SubResource("FastNoiseLite_l80u3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0p7el"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1xn6i"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_0p7el")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q0iaf"]
+fractal_type = 2
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tt6mq"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_q0iaf")
+
+[sub_resource type="Gradient" id="Gradient_b7lxc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.56, 0.20272, 0.0728, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yrf7a"]
+gradient = SubResource("Gradient_b7lxc")
+
+[sub_resource type="Gradient" id="Gradient_g8yqa"]
+offsets = PackedFloat32Array(0.650794, 0.920635)
+colors = PackedColorArray(0, 0, 0, 1, 0.703808, 0.703808, 0.703808, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fof64"]
+noise_type = 2
+frequency = 0.3
+fractal_type = 0
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ta85s"]
+color_ramp = SubResource("Gradient_g8yqa")
+noise = SubResource("FastNoiseLite_fof64")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jyyh5"]
+seed = 200
+fractal_type = 2
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wjk50"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_jyyh5")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_txt31"]
+seed = 300
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a5tb1"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_txt31")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j123t"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_n3cgn")
+shader_parameter/dark_tint = Color(0.625434, 0.360739, 0.230829, 1)
+shader_parameter/sand_height = 0.8
+shader_parameter/sand_ramp = SubResource("GradientTexture1D_yrf7a")
+shader_parameter/normal_noise = SubResource("NoiseTexture2D_l50cr")
+shader_parameter/normal_noise2 = SubResource("NoiseTexture2D_jf6mh")
+shader_parameter/wind_noise = SubResource("NoiseTexture2D_wjk50")
+shader_parameter/wind_noise2 = SubResource("NoiseTexture2D_a5tb1")
+shader_parameter/specular_noise = SubResource("NoiseTexture2D_ta85s")
+shader_parameter/sand_noise = SubResource("NoiseTexture2D_1xn6i")
+shader_parameter/sand_noise2 = SubResource("NoiseTexture2D_tt6mq")
+shader_parameter/deformMask = SubResource("ViewportTexture_d8e0e")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4fbgs"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_j123t")
+size = Vector2(50, 50)
+subdivide_width = 500
+subdivide_depth = 500
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fs22b"]
+viewport_path = NodePath("Sand/Sand/SandPainter")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hwas1"]
+size = Vector2(150, 150)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_03556"]
+data = PackedVector3Array(75, 0, 75, -75, 0, 75, 75, 0, -75, -75, 0, 75, -75, 0, -75, 75, 0, -75)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kc0er"]
+fractal_type = 2
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_okpvu"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_kc0er")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vdxsx"]
+noise_type = 2
+seed = 125
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nq5un"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_vdxsx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_giulv"]
+render_priority = 0
+shader = ExtResource("8_udkfa")
+shader_parameter/alpha = 1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_okpvu")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_nq5un")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dkyqi"]
+material = SubResource("ShaderMaterial_giulv")
+flip_faces = true
+orientation = 2
+
+[sub_resource type="Environment" id="Environment_iftr2"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 3
 
 [node name="World" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_cull_mask = 4294967293
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = ExtResource("1_31u2e")
+
+[node name="DayNightCycle" type="AnimationPlayer" parent="Environment"]
+libraries = {
+"": SubResource("AnimationLibrary_v0jmx")
+}
+autoplay = "DayNightCycle"
+speed_scale = 0.01
+
+[node name="Sand" type="Node3D" parent="."]
+
+[node name="Sand" type="MeshInstance3D" parent="Sand"]
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="SandPainter" type="SubViewport" parent="Sand/Sand" node_paths=PackedStringArray("player")]
+disable_3d = true
+transparent_bg = true
+canvas_cull_mask = 4293919232
+render_target_clear_mode = 2
+render_target_update_mode = 4
+script = ExtResource("2_rnf01")
+worldextents = Rect2(0, 0, 50, 50)
+player = NodePath("../../../Player")
+
+[node name="SandPaintbrush" type="Sprite2D" parent="Sand/Sand/SandPainter"]
+visibility_layer = 512
+texture = ExtResource("3_03ww5")
+
+[node name="ClearBrush" type="Sprite2D" parent="Sand/Sand/SandPainter"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 512
+scale = Vector2(2, 2)
+texture = ExtResource("3_03ww5")
+
+[node name="Visual" type="Sprite2D" parent="Sand/Sand"]
+visible = false
+position = Vector2(76, 74)
+scale = Vector2(0.25, 0.25)
+texture = SubResource("ViewportTexture_fs22b")
+
+[node name="Sand2" type="MeshInstance3D" parent="Sand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="Sand3" type="MeshInstance3D" parent="Sand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0)
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="Sand4" type="MeshInstance3D" parent="Sand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="Sand5" type="MeshInstance3D" parent="Sand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="Sand6" type="MeshInstance3D" parent="Sand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 50)
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="Sand7" type="MeshInstance3D" parent="Sand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -50)
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="Sand8" type="MeshInstance3D" parent="Sand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -50)
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="Sand9" type="MeshInstance3D" parent="Sand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 50)
+mesh = SubResource("PlaneMesh_4fbgs")
+
+[node name="CollMesh" type="MeshInstance3D" parent="Sand"]
+visible = false
+mesh = SubResource("PlaneMesh_hwas1")
+
+[node name="StaticBody" type="StaticBody3D" parent="Sand"]
+
+[node name="Collision" type="CollisionShape3D" parent="Sand/StaticBody"]
+shape = SubResource("ConcavePolygonShape3D_03556")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_7eqmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="EventManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_20lrs")]
+player = NodePath("../Player")
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="HeatDistortion" type="MeshInstance3D" parent="VFX"]
+visible = false
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("PlaneMesh_dkyqi")
+
+[node name="Tree" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_wm8mh")]
+transform = Transform3D(0.884377, 0, 0.466773, 0, 1, 0, -0.466773, 0, 0.884377, 3, 0, -10)
+player = NodePath("../Player")
+
+[node name="WindSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_m5xu2")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
+
+[node name="MinimapCanvas" type="CanvasLayer" parent="."]
+
+[node name="Minimap" type="Control" parent="MinimapCanvas"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="BG" type="ColorRect" parent="MinimapCanvas/Minimap"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -284.0
+offset_right = 279.0
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MinimapCanvas/Minimap/BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MinimapCanvas/Minimap/BG/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(262, 267)
+render_target_update_mode = 4
+
+[node name="Camera" type="Camera3D" parent="MinimapCanvas/Minimap/BG/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 19, 0)
+cull_mask = 5
+environment = SubResource("Environment_iftr2")
+projection = 1
+size = 75.0
+
+[connection signal="distance_traveled" from="Player" to="EventManager" method="_on_player_distance_traveled"]

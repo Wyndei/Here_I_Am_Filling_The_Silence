@@ -1,27 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddjnnv8dqoig5"]
+[gd_scene load_steps=12 format=3 uid="uid://card6of5oerjt"]
 
-[ext_resource type="Script" path="res://Friends/FireExtinguisher/fire_extinguisher.gd" id="1_3nja8"]
-[ext_resource type="ArrayMesh" uid="uid://qs3lbu2r23v6" path="res://Friends/FireExtinguisher/FireExtinguisherMesh.tres" id="1_v1lsr"]
+[ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_lfin2"]
+[ext_resource type="Resource" uid="uid://d0q0onnromh4w" path="res://Friends/Candle/Candle.tres" id="2_xqf5j"]
+[ext_resource type="ArrayMesh" uid="uid://qs3lbu2r23v6" path="res://Friends/FireExtinguisher/FireExtinguisherMesh.tres" id="3_pehqu"]
+[ext_resource type="Shader" path="res://VFX/Toon/Toon.gdshader" id="4_ae231"]
+[ext_resource type="Texture2D" uid="uid://kxsixdj62xe2" path="res://Friends/Candle/Candle.png" id="5_o5j0j"]
+[ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="6_kalll"]
+[ext_resource type="Script" path="res://UI/map_marker.gd" id="7_l08u6"]
+
+[sub_resource type="Gradient" id="Gradient_m28g1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.381818, 0.490909)
+colors = PackedColorArray(0, 0, 0, 1, 0.226707, 0.226707, 0.226707, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_taoyx"]
+gradient = SubResource("Gradient_m28g1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ca8ud"]
+render_priority = 0
+shader = ExtResource("4_ae231")
+shader_parameter/color = Color(0.77, 0.682477, 0.5313, 1)
+shader_parameter/rim_light = true
+shader_parameter/rim_light_intensity = 0.35
+shader_parameter/surface_texture = ExtResource("5_o5j0j")
+shader_parameter/light_ramp = SubResource("GradientTexture1D_taoyx")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1d8x"]
-<<<<<<< Updated upstream
-size = Vector3(1, 2, 1)
+size = Vector3(0.5, 1, 0.5)
 
-[node name="FireExtinguisher" type="StaticBody3D"]
-collision_layer = 0
-=======
-size = Vector3(0.5, 0.268005, 0.5)
-
-[node name="FireExtinguisher" type="StaticBody3D" groups=["Interactable"]]
+[node name="Candle" type="StaticBody3D" groups=["Interactable"]]
 collision_layer = 2
->>>>>>> Stashed changes
 collision_mask = 0
-script = ExtResource("1_3nja8")
+script = ExtResource("1_lfin2")
+friend = ExtResource("2_xqf5j")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994295, -0.106664, 0, 0.106664, 0.994295, 0, 0.472635, 0)
 cast_shadow = 0
-mesh = ExtResource("1_v1lsr")
+mesh = ExtResource("3_pehqu")
+surface_material_override/0 = SubResource("ShaderMaterial_ca8ud")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63011, 0)
 shape = SubResource("BoxShape3D_v1d8x")
+
+[node name="MapMarker" type="Sprite3D" parent="."]
+visible = false
+layers = 4
+cast_shadow = 0
+modulate = Color(0, 0.0499997, 1, 1)
+pixel_size = 0.001
+billboard = 1
+double_sided = false
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("6_kalll")
+script = ExtResource("7_l08u6")
