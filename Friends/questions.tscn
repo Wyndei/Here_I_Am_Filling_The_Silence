@@ -14,40 +14,88 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -229.5
+offset_top = -195.5
+offset_right = 229.5
+offset_bottom = 195.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 5
 
 [node name="Button1" type="Button" parent="QuestionContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Have you ever been to the desert?"
+
+[node name="Button2" type="Button" parent="QuestionContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "When is the last time you felt bored?"
+
+[node name="Button3" type="Button" parent="QuestionContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "What part of the day yesterday mattered the most to you?"
 
 [node name="Button5" type="Button" parent="QuestionContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "What part of yesterday meant the least to you?"
+
+[node name="Button4" type="Button" parent="QuestionContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Did you ever have an imaginary friend?"
+
+[node name="Button6" type="Button" parent="QuestionContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "How do you create meaning in your life?"
 
 [node name="Button7" type="Button" parent="QuestionContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "What do you wish meant less to you?"
 
 [node name="Button8" type="Button" parent="QuestionContainer"]
 layout_mode = 2
-text = "Do you have any meaningful relationships with objects?"
+theme_override_font_sizes/font_size = 12
+text = "Do you have any meaningful relationships with inanimate objects?"
+
+[node name="Button9" type="Button" parent="QuestionContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "What do you find meaning in today that you didn't use to?"
 
 [node name="Button10" type="Button" parent="QuestionContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "What has lost meaning as you've gotten older?"
+
+[node name="Button12" type="Button" parent="QuestionContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "When has your life felt the most full?"
+
+[node name="Button11" type="Button" parent="QuestionContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "What time in your life felt the most empty?"
 
 [node name="Nevermind" type="Button" parent="QuestionContainer"]
 layout_mode = 2
 text = "Nevermind"
 
 [connection signal="pressed" from="QuestionContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="QuestionContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="QuestionContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="QuestionContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="QuestionContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="QuestionContainer/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="QuestionContainer/Button7" to="." method="_on_button_7_pressed"]
 [connection signal="pressed" from="QuestionContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="QuestionContainer/Button9" to="." method="_on_button_9_pressed"]
 [connection signal="pressed" from="QuestionContainer/Button10" to="." method="_on_button_10_pressed"]
+[connection signal="pressed" from="QuestionContainer/Button12" to="." method="_on_button_12_pressed"]
+[connection signal="pressed" from="QuestionContainer/Button11" to="." method="_on_button_11_pressed"]
 [connection signal="pressed" from="QuestionContainer/Nevermind" to="." method="_on_nevermind_pressed"]

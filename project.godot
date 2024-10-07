@@ -13,7 +13,9 @@ config_version=5
 config/name="Filling_The_Silence"
 run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://Icon/bootSplash.png"
+config/icon="res://Icon/icon64.png"
+config/windows_native_icon="res://Icon/icon64.ico"
 
 [audio]
 
@@ -85,6 +87,11 @@ Talk={
 Pause={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Chromatic_Aberration_Toggle={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":67,"physical_keycode":0,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
 ]
 }
 

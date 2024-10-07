@@ -7,9 +7,9 @@ void fragment() {
 
 	float dist = distance(SCREEN_UV,vec2(0.5,0.5));
 
-	vec3 screen = vec3(texture(screen_texture,SCREEN_UV+0.005*dist).r,
+	vec3 screen = vec3(texture(screen_texture,SCREEN_UV+0.0025*dist).r,
 					   texture(screen_texture,SCREEN_UV).g,
-					   texture(screen_texture,SCREEN_UV-0.005*dist).b);
+					   texture(screen_texture,SCREEN_UV-0.0025*dist).b);
 
 
 	COLOR = vec4(screen,1.0);

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://5jkeyxkfyor6"]
 
 [ext_resource type="Script" path="res://UI/video_scene.gd" id="1_as6gy"]
-[ext_resource type="VideoStream" path="res://Media/EndingVideo.ogv" id="1_n6fjx"]
+[ext_resource type="VideoStream" path="res://Media/EndingVideoOGV.ogv" id="2_eeplp"]
 
 [node name="Video" type="CanvasLayer"]
 script = ExtResource("1_as6gy")
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("1_n6fjx")
+stream = ExtResource("2_eeplp")
 autoplay = true
 expand = true
 

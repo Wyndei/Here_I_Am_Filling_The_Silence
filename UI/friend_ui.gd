@@ -4,9 +4,7 @@ extends Node3D
 @onready var friend_container = $FriendContainer
 
 @onready var error_label = $ErrorLabel
-@onready var speaking_label = $SpeakingLabel
 
-@onready var warning_timer = $Timers/WarningTimer
 
 @onready var speech_bubble = $SpeechBubble
 

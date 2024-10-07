@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhhtf78l7fsah"]
+
+[ext_resource type="Texture2D" uid="uid://cmafgudsfsbwk" path="res://UI/AudioIcon.png" id="1_kv1jc"]
+
+[node name="AudioScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AudioIcon" type="TextureRect" parent="BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -72.0
+offset_right = 128.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kv1jc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.5
+offset_top = -189.5
+offset_right = 324.5
+offset_bottom = -82.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Disclaimer" type="Label" parent="BG/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Disclaimer:"
+
+[node name="Label" type="Label" parent="BG/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "This game HEAVILY relies on audio"
+
+[node name="Label2" type="Label" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74978, 1)
+theme_override_font_sizes/font_size = 16
+text = "Please ensure that you are able to hear the game using headphones or other means"

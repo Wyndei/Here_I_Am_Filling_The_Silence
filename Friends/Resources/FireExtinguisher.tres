@@ -1,15 +1,22 @@
-[gd_resource type="Resource" script_class="Friend" load_steps=8 format=3 uid="uid://b1q57pmlnbxpk"]
+[gd_resource type="Resource" script_class="Friend" load_steps=15 format=3 uid="uid://b1q57pmlnbxpk"]
 
 [ext_resource type="AudioStream" uid="uid://b1cp4h35fiigq" path="res://Sounds/Music/track2.wav" id="1_hddmv"]
 [ext_resource type="AudioStream" uid="uid://cs5m0tmikl4b" path="res://Sounds/Voicelines/KF/KF_01.wav" id="2_a7k8v"]
 [ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="2_k3v3q"]
 [ext_resource type="AudioStream" uid="uid://bf3xlj4rjupss" path="res://Sounds/Voicelines/KF/KF_05.wav" id="3_8t1rd"]
+[ext_resource type="AudioStream" uid="uid://dupvl84slhmug" path="res://Sounds/Voicelines/KF/KF_02.wav" id="3_he53h"]
+[ext_resource type="AudioStream" uid="uid://ri6vk7to4vpc" path="res://Sounds/Voicelines/KF/KF_03.wav" id="4_biic6"]
 [ext_resource type="AudioStream" uid="uid://b6g0com2dxweq" path="res://Sounds/Voicelines/KF/KF_07.wav" id="4_gw0a1"]
 [ext_resource type="AudioStream" uid="uid://censdwxgmm7sk" path="res://Sounds/Voicelines/KF/KF_08.wav" id="5_jcvqk"]
+[ext_resource type="AudioStream" uid="uid://cod147fx8q4fg" path="res://Sounds/Voicelines/KF/KF_04.wav" id="5_mxm7t"]
 [ext_resource type="AudioStream" uid="uid://bj2jfd5l3o1ft" path="res://Sounds/Voicelines/KF/KF_10.wav" id="6_qxkid"]
+[ext_resource type="AudioStream" uid="uid://ipwosv5acxuy" path="res://Sounds/Voicelines/KF/KF_06.wav" id="7_8tj2y"]
+[ext_resource type="AudioStream" uid="uid://in6s0j825rh" path="res://Sounds/Voicelines/KF/KF_09.wav" id="10_s3uoq"]
+[ext_resource type="AudioStream" uid="uid://dl5drfq3malks" path="res://Sounds/Voicelines/KF/KF_11.wav" id="12_hr5lx"]
+[ext_resource type="AudioStream" uid="uid://bttburfguuspx" path="res://Sounds/Voicelines/KF/KF_12.wav" id="13_oe4bl"]
 
 [resource]
 script = ExtResource("2_k3v3q")
 Name = "Fire Extinguisher"
-responses = Array[AudioStream]([ExtResource("2_a7k8v"), ExtResource("3_8t1rd"), ExtResource("4_gw0a1"), ExtResource("5_jcvqk"), ExtResource("6_qxkid")])
+responses = Array[AudioStream]([ExtResource("2_a7k8v"), ExtResource("3_he53h"), ExtResource("4_biic6"), ExtResource("5_mxm7t"), ExtResource("3_8t1rd"), ExtResource("7_8tj2y"), ExtResource("4_gw0a1"), ExtResource("5_jcvqk"), ExtResource("10_s3uoq"), ExtResource("6_qxkid"), ExtResource("12_hr5lx"), ExtResource("13_oe4bl")])
 music = ExtResource("1_hddmv")

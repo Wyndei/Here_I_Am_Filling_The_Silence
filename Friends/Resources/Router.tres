@@ -1,15 +1,22 @@
-[gd_resource type="Resource" script_class="Friend" load_steps=8 format=3 uid="uid://dk50mb52d64vm"]
+[gd_resource type="Resource" script_class="Friend" load_steps=15 format=3 uid="uid://dk50mb52d64vm"]
 
 [ext_resource type="AudioStream" uid="uid://k6djdt5h587h" path="res://Sounds/Music/track6.wav" id="1_dko5x"]
 [ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="1_owbka"]
 [ext_resource type="AudioStream" uid="uid://cjocrxauhoo7e" path="res://Sounds/Voicelines/DH/DH_01.wav" id="2_1gjw4"]
+[ext_resource type="AudioStream" uid="uid://bwf1iyqcq7lj3" path="res://Sounds/Voicelines/DH/DH_02.wav" id="3_2s21k"]
 [ext_resource type="AudioStream" uid="uid://dmt6gfbcvelhy" path="res://Sounds/Voicelines/DH/DH_05.wav" id="3_23ygc"]
 [ext_resource type="AudioStream" uid="uid://fgowk7oxjlc2" path="res://Sounds/Voicelines/DH/DH_07.wav" id="4_lg8lk"]
+[ext_resource type="AudioStream" uid="uid://bksnf8wrne7wd" path="res://Sounds/Voicelines/DH/DH_03.wav" id="4_xdr5o"]
+[ext_resource type="AudioStream" uid="uid://k01vxh1yc7c" path="res://Sounds/Voicelines/DH/DH_04.wav" id="5_beio6"]
 [ext_resource type="AudioStream" uid="uid://cltujndwfgme5" path="res://Sounds/Voicelines/DH/DH_08.wav" id="5_p7xh8"]
 [ext_resource type="AudioStream" uid="uid://bbtv6i36f0wt3" path="res://Sounds/Voicelines/DH/DH_10.wav" id="6_bjavp"]
+[ext_resource type="AudioStream" uid="uid://d2k1vblk4jvw3" path="res://Sounds/Voicelines/DH/DH_06.wav" id="8_5umom"]
+[ext_resource type="AudioStream" uid="uid://c5n0xbfmiouq3" path="res://Sounds/Voicelines/DH/DH_09.wav" id="11_eg5kh"]
+[ext_resource type="AudioStream" uid="uid://b5ujakf5nkhdh" path="res://Sounds/Voicelines/DH/DH_12.wav" id="13_c1uxf"]
+[ext_resource type="AudioStream" uid="uid://t6ied7tjagth" path="res://Sounds/Voicelines/DH/DH_13.wav" id="14_uxaqb"]
 
 [resource]
 script = ExtResource("1_owbka")
 Name = "Router"
-responses = Array[AudioStream]([ExtResource("2_1gjw4"), ExtResource("3_23ygc"), ExtResource("4_lg8lk"), ExtResource("5_p7xh8"), ExtResource("6_bjavp")])
+responses = Array[AudioStream]([ExtResource("2_1gjw4"), ExtResource("3_2s21k"), ExtResource("4_xdr5o"), ExtResource("5_beio6"), ExtResource("3_23ygc"), ExtResource("8_5umom"), ExtResource("4_lg8lk"), ExtResource("5_p7xh8"), ExtResource("11_eg5kh"), ExtResource("6_bjavp"), ExtResource("13_c1uxf"), ExtResource("14_uxaqb")])
 music = ExtResource("1_dko5x")

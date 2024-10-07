@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://biuyik7rmy4wb"]
+[gd_scene load_steps=48 format=3 uid="uid://biuyik7rmy4wb"]
 
 [ext_resource type="Environment" uid="uid://dy38odtebjlou" path="res://VFX/Environments/Sandstorm.tres" id="1_31u2e"]
 [ext_resource type="Shader" path="res://VFX/Sand/Sand.gdshader" id="1_n3cgn"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ddr5uibpboafl" path="res://Scenes/Player/Player.tscn" id="3_7eqmk"]
 [ext_resource type="PackedScene" uid="uid://b6fkfj5qpulc5" path="res://EventManager/event_manager.tscn" id="4_20lrs"]
 [ext_resource type="Shader" path="res://VFX/Distortion.gdshader" id="8_udkfa"]
+[ext_resource type="Shader" path="res://VFX/ChromaticAberration.gdshader" id="8_vwxub"]
+[ext_resource type="Script" path="res://VFX/chromatic_aberration.gd" id="9_coa0s"]
 [ext_resource type="AudioStream" uid="uid://dvcuygtgytn3i" path="res://Sounds/Music/windsound.wav" id="9_m5xu2"]
 
 [sub_resource type="Animation" id="Animation_op642"]
@@ -341,6 +343,9 @@ material = SubResource("ShaderMaterial_giulv")
 flip_faces = true
 orientation = 2
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e7jny"]
+shader = ExtResource("8_vwxub")
+
 [sub_resource type="Environment" id="Environment_iftr2"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
@@ -361,7 +366,7 @@ libraries = {
 "": SubResource("AnimationLibrary_v0jmx")
 }
 autoplay = "DayNightCycle"
-speed_scale = 0.04
+speed_scale = 0.1
 
 [node name="Sand" type="Node3D" parent="."]
 
@@ -441,7 +446,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="EventManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_20lrs")]
 player = NodePath("../Player")
-flag_count = 5
 
 [node name="VFX" type="Node3D" parent="."]
 
@@ -450,6 +454,16 @@ layers = 32
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("PlaneMesh_dkyqi")
+
+[node name="ColorRect" type="ColorRect" parent="VFX"]
+material = SubResource("ShaderMaterial_e7jny")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_coa0s")
 
 [node name="Tree" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_wm8mh")]
 transform = Transform3D(0.884377, 0, 0.466773, 0, 1, 0, -0.466773, 0, 0.884377, 3, 0, -10)

@@ -17,3 +17,11 @@ func add_track():
 	
 	
 	cur_index += 1
+
+func play():
+	for child in get_children():
+		child.play()
+
+func stop():
+	for child in get_children():
+		child.stop()

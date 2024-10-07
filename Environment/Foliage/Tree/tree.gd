@@ -8,7 +8,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(_delta):
-	if global_position.distance_to(player.global_position) >= 20 and seen:
+	if global_position.distance_to(player.global_position) >= 17.5 and seen:
 		queue_free()
 
 
