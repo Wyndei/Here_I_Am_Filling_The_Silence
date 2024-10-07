@@ -5,16 +5,16 @@
 [ext_resource type="Script" path="res://VFX/Sand/SandPainter.gd" id="2_rnf01"]
 [ext_resource type="PackedScene" uid="uid://d0xa08888e7gm" path="res://Environment/Foliage/Tree/tree.tscn" id="2_wm8mh"]
 [ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="3_03ww5"]
-[ext_resource type="PackedScene" uid="uid://ddr5uibpboafl" path="res://Scenes/Player.tscn" id="3_7eqmk"]
+[ext_resource type="PackedScene" uid="uid://ddr5uibpboafl" path="res://Scenes/Player/Player.tscn" id="3_7eqmk"]
 [ext_resource type="PackedScene" uid="uid://b6fkfj5qpulc5" path="res://EventManager/event_manager.tscn" id="4_20lrs"]
 [ext_resource type="Shader" path="res://VFX/Distortion.gdshader" id="8_udkfa"]
-[ext_resource type="AudioStream" uid="uid://dvcuygtgytn3i" path="res://SFX/Music/windsound.wav" id="9_m5xu2"]
+[ext_resource type="AudioStream" uid="uid://dvcuygtgytn3i" path="res://Sounds/Music/windsound.wav" id="9_m5xu2"]
 
 [sub_resource type="Animation" id="Animation_op642"]
 resource_name = "DayNightCycle"
 length = 12.0
 loop_mode = 1
-step = 1.0
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,7 +49,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 2, 3, 8, 9, 12),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.858824, 0.447059, 0.564706, 1), Color(0.858824, 0.447059, 0.564706, 1), Color(0.541176, 0.447059, 0.509804, 1), Color(0.541176, 0.447059, 0.509804, 1), Color(0.858824, 0.447059, 0.564706, 1), Color(0.858824, 0.447059, 0.564706, 1)]
+"values": [Color(0.858824, 0.447059, 0.564706, 1), Color(0.858824, 0.447059, 0.564706, 1), Color(0.705882, 0.52549, 0.533333, 1), Color(0.705882, 0.52549, 0.533333, 1), Color(0.858824, 0.447059, 0.564706, 1), Color(0.858824, 0.447059, 0.564706, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -323,7 +323,7 @@ tonemap_mode = 3
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Sun" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
 light_cull_mask = 4294967293
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
@@ -334,7 +334,7 @@ libraries = {
 "": SubResource("AnimationLibrary_v0jmx")
 }
 autoplay = "DayNightCycle"
-speed_scale = 0.01
+speed_scale = 0.04
 
 [node name="Sand" type="Node3D" parent="."]
 

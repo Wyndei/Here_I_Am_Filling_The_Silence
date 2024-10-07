@@ -1,16 +1,26 @@
-[gd_scene load_steps=38 format=4 uid="uid://d0xue5beqlj58"]
+[gd_scene load_steps=44 format=4 uid="uid://d0xue5beqlj58"]
 
+[ext_resource type="Script" path="res://UI/friend_ui.gd" id="1_v5bo6"]
+[ext_resource type="Script" path="res://UI/FriendUIComponent.gd" id="2_7nbfw"]
 [ext_resource type="Shader" path="res://VFX/Toon/ToonMetal.gdshader" id="2_hqmjd"]
+[ext_resource type="Shader" path="res://UI/friend.gdshader" id="2_l330i"]
 [ext_resource type="ArrayMesh" uid="uid://ol4qeyeomf41" path="res://Friends/Candle/Candle.obj" id="7_am72i"]
 [ext_resource type="Shader" path="res://VFX/Toon/Toon.gdshader" id="8_7k8a8"]
 [ext_resource type="Texture2D" uid="uid://kxsixdj62xe2" path="res://Friends/Candle/Candle.png" id="9_yniug"]
 [ext_resource type="Shader" path="res://VFX/CandleFire.gdshader" id="10_78sto"]
 [ext_resource type="Texture2D" uid="uid://bfws553iot1kf" path="res://VFX/CandleFire.png" id="11_ym8nf"]
 [ext_resource type="ArrayMesh" uid="uid://b2wu7loit6xud" path="res://Friends/Book/bookMesh.tres" id="12_vfkyy"]
+[ext_resource type="ArrayMesh" uid="uid://bkhoo7irig5xy" path="res://Friends/Router/RouterMesh.tres" id="12_wbbau"]
+[ext_resource type="ArrayMesh" uid="uid://ch3bjsaiutu0t" path="res://Friends/Mouse/MouseMesh.tres" id="13_08050"]
 [ext_resource type="ArrayMesh" uid="uid://sox1mlto3kik" path="res://Friends/CarDoor/CarDoorMesh.tres" id="15_kh15c"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e5tcp"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0a6g"]
 resource_local_to_scene = true
+shader = ExtResource("2_l330i")
+shader_parameter/friend_viewport = SubResource("ViewportTexture_e5tcp")
 
 [sub_resource type="Environment" id="Environment_an7jl"]
 ambient_light_source = 2
@@ -195,8 +205,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_v5bo6")
 
-[node name="Friends" type="ColorRect" parent="."]
+[node name="CollisionContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftContainer" type="VBoxContainer" parent="CollisionContainer"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 244.0
+grow_vertical = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="CollisionContainer"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -235.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="FriendView" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_k0a6g")
 layout_mode = 1
 anchors_preset = 15
@@ -211,18 +248,20 @@ transparent_bg = true
 size = Vector2i(1920, 1080)
 
 [node name="Camera" type="Camera3D" parent="SubViewport"]
-cull_mask = 1047554
+cull_mask = 2
 environment = SubResource("Environment_an7jl")
 current = true
 far = 10.0
 
 [node name="FriendContainer" type="Node3D" parent="."]
 
-[node name="FireExtinguisher" type="Node3D" parent="FriendContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.35, 0)
+[node name="FireExtinguisher" type="Node3D" parent="FriendContainer" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507, 0.275, 0)
+script = ExtResource("2_7nbfw")
+mesh = NodePath("Mesh")
 
 [node name="Mesh" type="MeshInstance3D" parent="FriendContainer/FireExtinguisher"]
-transform = Transform3D(0.349864, 0.00977257, 0, -0.00977257, 0.349864, 0, 0, 0, 0.35, -0.477526, 0.00135773, -0.839766)
+transform = Transform3D(0.234908, 0.00656157, 0, -0.00656157, 0.234908, 0, 0, 0, 0.235, -0.194, -0.087, -0.602)
 layers = 2
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_snrxa")
@@ -238,11 +277,13 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 shape = SubResource("ConcavePolygonShape3D_0dnhw")
 
-[node name="Candle" type="Node3D" parent="FriendContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395, -0.255, 0)
+[node name="Candle" type="Node3D" parent="FriendContainer" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.505, -0.34, 0)
+script = ExtResource("2_7nbfw")
+mesh = NodePath("Mesh")
 
 [node name="Mesh" type="MeshInstance3D" parent="FriendContainer/Candle"]
-transform = Transform3D(0.632506, 0.281152, -0.0201072, -0.18851, 0.943347, -0.0674654, -1.22935e-09, 0.105597, 0.656235, 0.112, -0.048, -0.585)
+transform = Transform3D(0.529963, 0.235713, -0.0168474, -0.157949, 0.790887, -0.0565278, 0, 0.0885308, 0.549845, 0.112, -0.048, -0.585)
 layers = 2
 cast_shadow = 0
 mesh = ExtResource("7_am72i")
@@ -265,11 +306,13 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 shape = SubResource("ConcavePolygonShape3D_0dnhw")
 
-[node name="Book" type="Node3D" parent="FriendContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59, -0.2, 0)
+[node name="Book" type="Node3D" parent="FriendContainer" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78, -0.23, 0)
+script = ExtResource("2_7nbfw")
+mesh = NodePath("Mesh")
 
 [node name="Mesh" type="MeshInstance3D" parent="FriendContainer/Book"]
-transform = Transform3D(0.612711, -0.367589, -0.0114724, 0.126714, 0.51383, -0.549728, 0.21007, 0.762206, 0.365058, 0.112, -0.048, -0.585)
+transform = Transform3D(0.538443, -0.323033, -0.0100822, 0.111355, 0.451547, -0.483094, 0.184607, 0.669817, 0.320809, 0.112, -0.048, -0.585)
 layers = 2
 cast_shadow = 0
 mesh = ExtResource("12_vfkyy")
@@ -285,11 +328,13 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 shape = SubResource("ConcavePolygonShape3D_0dnhw")
 
-[node name="CarDoor" type="Node3D" parent="FriendContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44, 0.293, 0)
+[node name="CarDoor" type="Node3D" parent="FriendContainer" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, 0.273, 0)
+script = ExtResource("2_7nbfw")
+mesh = NodePath("Mesh")
 
 [node name="Mesh" type="MeshInstance3D" parent="FriendContainer/CarDoor"]
-transform = Transform3D(0.172502, 0.0511186, -0.00548378, -0.04966, 0.170642, 0.0285489, 0.0133064, -0.0258468, 0.177637, 0.935, 0, -0.585)
+transform = Transform3D(0.115001, 0.034079, -0.00365585, -0.0331066, 0.113762, 0.0190327, 0.00887092, -0.0172312, 0.118425, 0.935, 0, -0.585)
 layers = 2
 cast_shadow = 0
 mesh = ExtResource("15_kh15c")
@@ -304,3 +349,191 @@ collision_mask = 0
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 shape = SubResource("ConcavePolygonShape3D_0dnhw")
+
+[node name="Router" type="Node3D" parent="FriendContainer" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.561, -0.056, 0)
+script = ExtResource("2_7nbfw")
+mesh = NodePath("Mesh")
+
+[node name="Mesh" type="MeshInstance3D" parent="FriendContainer/Router"]
+transform = Transform3D(0.407632, 0.267346, 0.0496242, -0.175018, 0.326407, -0.320823, -0.208099, 0.249169, 0.367029, 0.935, 0, -0.585)
+layers = 2
+cast_shadow = 0
+mesh = ExtResource("12_wbbau")
+skeleton = NodePath("")
+
+[node name="StaticBody" type="StaticBody3D" parent="FriendContainer/Router"]
+transform = Transform3D(0.958342, 0.285621, 0, -0.285621, 0.958342, 0, 0, 0, 1, -0.679927, 0.00135773, -1.51)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape3D" parent="FriendContainer/Router/StaticBody"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+shape = SubResource("ConcavePolygonShape3D_0dnhw")
+
+[node name="Mouse" type="Node3D" parent="FriendContainer" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281, -0.071, 0)
+script = ExtResource("2_7nbfw")
+mesh = NodePath("Mesh")
+
+[node name="Mesh" type="MeshInstance3D" parent="FriendContainer/Mouse"]
+transform = Transform3D(0.154179, -0.422728, -0.00543195, 0.160678, 0.0639414, -0.415445, 0.391039, 0.1404, 0.172848, 0.935, 0, -0.585)
+layers = 2
+cast_shadow = 0
+mesh = ExtResource("13_08050")
+skeleton = NodePath("")
+
+[node name="StaticBody" type="StaticBody3D" parent="FriendContainer/Mouse"]
+transform = Transform3D(0.958342, 0.285621, 0, -0.285621, 0.958342, 0, 0, 0, 1, -0.679927, 0.00135773, -1.51)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape3D" parent="FriendContainer/Mouse/StaticBody"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+shape = SubResource("ConcavePolygonShape3D_0dnhw")
+
+[node name="YapStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
+
+[node name="Questions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionContainer" type="VBoxContainer" parent="Questions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button1" type="Button" parent="Questions/QuestionContainer"]
+layout_mode = 2
+text = "Have you ever been to the desert?"
+
+[node name="Button5" type="Button" parent="Questions/QuestionContainer"]
+layout_mode = 2
+text = "What part of yesterday meant the least to you?"
+
+[node name="Button7" type="Button" parent="Questions/QuestionContainer"]
+layout_mode = 2
+text = "What do you wish meant less to you?"
+
+[node name="Button8" type="Button" parent="Questions/QuestionContainer"]
+layout_mode = 2
+text = "Do you have any meaningful relationships with objects?"
+
+[node name="Button10" type="Button" parent="Questions/QuestionContainer"]
+layout_mode = 2
+text = "What has lost meaning as you've gotten older?"
+
+[node name="ErrorLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.0
+offset_top = 72.0
+offset_right = 127.0
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "You Don't Have anyone to talk to"
+
+[node name="MarginContainer" type="MarginContainer" parent="ErrorLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -20
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -20
+theme_override_constants/margin_bottom = -5
+
+[node name="Panel" type="Panel" parent="ErrorLabel/MarginContainer"]
+z_index = -1
+layout_mode = 2
+
+[node name="SpeakingLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.0
+offset_top = 72.0
+offset_right = 127.0
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Someone is speaking."
+
+[node name="MarginContainer" type="MarginContainer" parent="SpeakingLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -20
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -20
+theme_override_constants/margin_bottom = -5
+
+[node name="Panel" type="Panel" parent="SpeakingLabel/MarginContainer"]
+z_index = -1
+layout_mode = 2
+
+[node name="TalkTutorial" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.5
+offset_top = -207.0
+offset_right = 54.5
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press T to talk"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TalkTutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -20
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -20
+theme_override_constants/margin_bottom = -5
+
+[node name="Panel" type="Panel" parent="TalkTutorial/MarginContainer"]
+z_index = -1
+layout_mode = 2
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="WarningTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timers/WarningTimer" to="." method="_on_warning_timer_timeout"]

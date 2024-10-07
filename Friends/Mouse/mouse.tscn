@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgrqu3maqev57"]
+
+[ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_7pm8w"]
+[ext_resource type="Resource" uid="uid://dn7nehe261adt" path="res://Friends/Mouse/Mouse.tres" id="2_bse47"]
+[ext_resource type="ArrayMesh" uid="uid://ch3bjsaiutu0t" path="res://Friends/Mouse/MouseMesh.tres" id="3_ygobl"]
+[ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="5_owrhv"]
+[ext_resource type="Script" path="res://UI/map_marker.gd" id="6_hy8bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1d8x"]
+size = Vector3(0.5, 1, 0.5)
+
+[node name="Mouse" type="StaticBody3D" groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_7pm8w")
+friend = ExtResource("2_bse47")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994295, -0.106664, 0, 0.106664, 0.994295, 0, 0.472635, 0)
+cast_shadow = 0
+mesh = ExtResource("3_ygobl")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63011, 0)
+shape = SubResource("BoxShape3D_v1d8x")
+
+[node name="MapMarker" type="Sprite3D" parent="."]
+visible = false
+layers = 4
+cast_shadow = 0
+modulate = Color(0, 0.0499997, 1, 1)
+pixel_size = 0.001
+billboard = 1
+double_sided = false
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("5_owrhv")
+script = ExtResource("6_hy8bv")

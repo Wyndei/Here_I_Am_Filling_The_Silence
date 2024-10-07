@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_ws5c4")
 Name = "Fire Extinguisher"
+responses = Array[AudioStream]([null, null, null, null])

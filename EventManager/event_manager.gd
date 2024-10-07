@@ -11,15 +11,19 @@ var fire_extinguisher : bool = false
 var candle : bool = false
 var book : bool = false
 var car_door : bool = false
-var air_con : bool = false
+var router : bool = false
+var mouse : bool = false
 
 var flag_count : int = 0
 
 const TREE = preload("res://Environment/Foliage/Tree/tree.tscn")
+
 const FIRE_EXTINGUISHER = preload("res://Friends/FireExtinguisher/FireExtinguisher.tscn")
 const CANDLE = preload("res://Friends/Candle/candle.tscn")
 const BOOK = preload("res://Friends/Book/book.tscn")
 const CAR_DOOR = preload("res://Friends/CarDoor/car_door.tscn")
+const ROUTER = preload("res://Friends/Router/router.tscn")
+const MOUSE = preload("res://Friends/Mouse/mouse.tscn")
 
 var player_distance : float = 0.0
 
@@ -56,10 +60,12 @@ func _on_player_distance_traveled(distance : float):
 		spawn_object(TREE)
 		car_door = true
 	
-	if player_distance >= 200 and flag_count >= 4:
+	if player_distance >= 200 and flag_count >= 4 and !mouse:
 		pass
 	
 	
+	if player_distance >= 200 and flag_count >= 5 and !router:
+		pass
 	
 
 

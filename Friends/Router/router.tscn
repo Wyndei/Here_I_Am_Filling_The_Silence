@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj8jhxs0dnxoc"]
+
+[ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_yg8t0"]
+[ext_resource type="ArrayMesh" uid="uid://bkhoo7irig5xy" path="res://Friends/Router/RouterMesh.tres" id="2_q7jfs"]
+[ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="3_14tke"]
+[ext_resource type="Script" path="res://UI/map_marker.gd" id="4_fip3v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1d8x"]
+size = Vector3(0.5, 1, 0.5)
+
+[node name="Router" type="StaticBody3D" groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_yg8t0")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994295, -0.106664, 0, 0.106664, 0.994295, 0, 0.472635, 0)
+cast_shadow = 0
+mesh = ExtResource("2_q7jfs")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63011, 0)
+shape = SubResource("BoxShape3D_v1d8x")
+
+[node name="MapMarker" type="Sprite3D" parent="."]
+visible = false
+layers = 4
+cast_shadow = 0
+modulate = Color(0, 0.0499997, 1, 1)
+pixel_size = 0.001
+billboard = 1
+double_sided = false
+no_depth_test = true
+fixed_size = true
+texture = ExtResource("3_14tke")
+script = ExtResource("4_fip3v")
