@@ -324,7 +324,6 @@ tonemap_mode = 3
 
 [node name="Sun" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
-light_cull_mask = 4294967293
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = ExtResource("1_31u2e")
@@ -427,6 +426,7 @@ transform = Transform3D(0.884377, 0, 0.466773, 0, 1, 0, -0.466773, 0, 0.884377, 
 player = NodePath("../Player")
 
 [node name="WindSounds" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("9_m5xu2")
 volume_db = -10.0
 autoplay = true

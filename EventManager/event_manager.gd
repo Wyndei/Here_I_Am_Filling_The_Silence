@@ -36,37 +36,40 @@ func _on_player_distance_traveled(distance : float):
 	
 	dist_label.text = "Distance: " + str(snappedf(player_distance,0.1)) 
 	
-	if player_distance >= 10 and !fire_extinguisher:
-		print("Fire Extinguisher spawned")
-		spawn_object(FIRE_EXTINGUISHER)
+	if player_distance >= 10 and !book:
+		spawn_object(BOOK)
 		#spawn_object(TREE) #doesn't spawn a tree, the tree has already been spawned
+		book = true
+	
+	if player_distance >= 75 and flag_count >= 1 and !fire_extinguisher:
+		spawn_object(FIRE_EXTINGUISHER)
+		spawn_object(TREE)
 		fire_extinguisher = true
 	
-	if player_distance >= 75 and flag_count >= 1 and !candle:
-		print("Candle spawned")
+	if player_distance >= 100 and flag_count >= 2 and !candle:
 		spawn_object(CANDLE)
 		spawn_object(TREE)
 		candle = true
 	
-	if player_distance >= 100 and flag_count >= 2 and !book:
-		print("Candle spawned")
-		spawn_object(BOOK)
+	if player_distance >= 150 and flag_count >= 3 and !mouse:
+		spawn_object(MOUSE)
 		spawn_object(TREE)
-		book = true
+		mouse = true
 	
-	if player_distance >= 150 and flag_count >= 3 and !car_door:
-		print("Car Door Spawned")
+	if player_distance >= 250 and flag_count >= 4 and !car_door:
 		spawn_object(CAR_DOOR)
 		spawn_object(TREE)
 		car_door = true
 	
-	if player_distance >= 200 and flag_count >= 4 and !mouse:
-		pass
 	
+	if player_distance >= 300 and flag_count >= 5 and !router:
+		spawn_object(ROUTER)
+		spawn_object(TREE)
+		router = true
+		
 	
-	if player_distance >= 200 and flag_count >= 5 and !router:
-		pass
-	
+	if flag_count >= 6:
+		MusicHandler.add_track()
 
 
 func spawn_object(object : PackedScene):

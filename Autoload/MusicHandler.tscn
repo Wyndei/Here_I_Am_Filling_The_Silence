@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://de180rij3bavh"]
+
+[ext_resource type="Script" path="res://Autoload/MusicHandler.gd" id="1_2tq3k"]
+[ext_resource type="AudioStream" uid="uid://c8xn3fa1nkcfs" path="res://Sounds/Music/track1.wav" id="2_8gddq"]
+[ext_resource type="AudioStream" uid="uid://b1cp4h35fiigq" path="res://Sounds/Music/track2.wav" id="3_qoon2"]
+[ext_resource type="AudioStream" uid="uid://degliqrmsn5au" path="res://Sounds/Music/track3.wav" id="4_5r3nt"]
+[ext_resource type="AudioStream" uid="uid://bea7bclw2ulao" path="res://Sounds/Music/track4.wav" id="5_ngcgs"]
+[ext_resource type="AudioStream" uid="uid://dwb0acnmgv65p" path="res://Sounds/Music/track5.wav" id="6_v55ia"]
+[ext_resource type="AudioStream" uid="uid://k6djdt5h587h" path="res://Sounds/Music/track6.wav" id="7_6h8y1"]
+[ext_resource type="AudioStream" uid="uid://b8wpftkmycxb5" path="res://Sounds/Music/track7.wav" id="8_efkqd"]
+
+[node name="MusicHandler" type="Node"]
+process_mode = 3
+script = ExtResource("1_2tq3k")
+
+[node name="1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8gddq")
+bus = &"Music"
+
+[node name="2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qoon2")
+
+[node name="3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5r3nt")
+
+[node name="4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ngcgs")
+
+[node name="5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_v55ia")
+
+[node name="6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6h8y1")
+
+[node name="7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_efkqd")

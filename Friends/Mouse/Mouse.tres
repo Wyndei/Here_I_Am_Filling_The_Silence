@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Friend" load_steps=2 format=3 uid="uid://dn7nehe261adt"]
-
-[ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="1_lgebr"]
-
-[resource]
-script = ExtResource("1_lgebr")
-Name = "Mouse"
-responses = Array[AudioStream]([])

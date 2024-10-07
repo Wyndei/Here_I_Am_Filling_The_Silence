@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Friend" load_steps=8 format=3 uid="uid://d0q0onnromh4w"]
+
+[ext_resource type="AudioStream" uid="uid://degliqrmsn5au" path="res://Sounds/Music/track3.wav" id="1_yt5yx"]
+[ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="2_oqwd0"]
+[ext_resource type="AudioStream" uid="uid://637s33sgmiuk" path="res://Sounds/Voicelines/AS/AS_01.wav" id="2_xpiuw"]
+[ext_resource type="AudioStream" uid="uid://0wd5h13fa0fg" path="res://Sounds/Voicelines/AS/AS_05.wav" id="3_kto8q"]
+[ext_resource type="AudioStream" uid="uid://di86o3ac2xows" path="res://Sounds/Voicelines/AS/AS_07.wav" id="4_a0aue"]
+[ext_resource type="AudioStream" uid="uid://dhjvakndufcy5" path="res://Sounds/Voicelines/AS/AS_08.wav" id="5_w3pvh"]
+[ext_resource type="AudioStream" uid="uid://bfocntjnp0cs7" path="res://Sounds/Voicelines/AS/AS_10.wav" id="6_egsl1"]
+
+[resource]
+script = ExtResource("2_oqwd0")
+Name = "Candle"
+responses = Array[AudioStream]([ExtResource("2_xpiuw"), ExtResource("3_kto8q"), ExtResource("4_a0aue"), ExtResource("5_w3pvh"), ExtResource("6_egsl1")])
+music = ExtResource("1_yt5yx")

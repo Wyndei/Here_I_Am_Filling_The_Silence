@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Friend" load_steps=8 format=3 uid="uid://dhdk61fegj7eu"]
+
+[ext_resource type="AudioStream" uid="uid://dwb0acnmgv65p" path="res://Sounds/Music/track5.wav" id="1_sg66w"]
+[ext_resource type="AudioStream" uid="uid://crkgn0xtq2nhf" path="res://Sounds/Voicelines/BH/BH_01.wav" id="2_fihqg"]
+[ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="2_yxivb"]
+[ext_resource type="AudioStream" uid="uid://f6ojgfw0of57" path="res://Sounds/Voicelines/BH/BH_05.wav" id="3_webwy"]
+[ext_resource type="AudioStream" uid="uid://dfid02b15w6mb" path="res://Sounds/Voicelines/BH/BH_07.wav" id="4_gwchg"]
+[ext_resource type="AudioStream" uid="uid://vb7mpyr2f427" path="res://Sounds/Voicelines/BH/BH_08.wav" id="5_ij0w4"]
+[ext_resource type="AudioStream" uid="uid://0r1ghx08ft03" path="res://Sounds/Voicelines/BH/BH_10.wav" id="6_q5h7y"]
+
+[resource]
+script = ExtResource("2_yxivb")
+Name = "CarDoor"
+responses = Array[AudioStream]([ExtResource("2_fihqg"), ExtResource("3_webwy"), ExtResource("4_gwchg"), ExtResource("5_ij0w4"), ExtResource("6_q5h7y")])
+music = ExtResource("1_sg66w")

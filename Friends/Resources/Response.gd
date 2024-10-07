@@ -1,5 +1,5 @@
 class_name Response
 extends Resource
 
-@export var VoiceLine : AudioStream
+@export var Voiceline : AudioStream
 @export_multiline var transcript : String

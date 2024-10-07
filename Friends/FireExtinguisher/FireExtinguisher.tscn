@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://card6of5oerjt"]
+[gd_scene load_steps=8 format=3 uid="uid://card6of5oerjt"]
 
 [ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_lfin2"]
-[ext_resource type="Resource" uid="uid://b1q57pmlnbxpk" path="res://Friends/FireExtinguisher/FireExtinguisher.tres" id="2_l0xgb"]
+[ext_resource type="Resource" uid="uid://b1q57pmlnbxpk" path="res://Friends/Resources/FireExtinguisher.tres" id="2_l0xgb"]
 [ext_resource type="ArrayMesh" uid="uid://qs3lbu2r23v6" path="res://Friends/FireExtinguisher/FireExtinguisherMesh.tres" id="3_pehqu"]
+[ext_resource type="PackedScene" uid="uid://dmfh2vea4gno6" path="res://Friends/questions.tscn" id="6_1ysly"]
 [ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="6_kalll"]
 [ext_resource type="Script" path="res://UI/map_marker.gd" id="7_l08u6"]
 
@@ -36,3 +37,9 @@ no_depth_test = true
 fixed_size = true
 texture = ExtResource("6_kalll")
 script = ExtResource("7_l08u6")
+
+[node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
+max_distance = 20.0
+bus = &"Music"
+
+[node name="Questions" parent="." instance=ExtResource("6_1ysly")]

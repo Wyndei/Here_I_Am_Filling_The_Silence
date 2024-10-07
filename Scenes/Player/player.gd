@@ -15,7 +15,6 @@ var speed = 3.0
 @onready var camera = $CameraPivot/Camera
 @onready var CameraAnim = $CameraPivot/Camera/CameraAnim
 @onready var look_cast = $CameraPivot/Camera/LookCast
-@onready var friend_ui = $GUI/FriendUI
 
 @onready var left_click = $GUI/LeftClick
 
@@ -118,5 +117,4 @@ func interact():
 		
 	
 func gain_friend(friend : Friend):
-	friend_ui.gain_friend(friend)
 	friend_collected.emit(friend)

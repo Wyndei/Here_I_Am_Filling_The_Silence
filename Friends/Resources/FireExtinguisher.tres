@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Friend" load_steps=8 format=3 uid="uid://b1q57pmlnbxpk"]
+
+[ext_resource type="AudioStream" uid="uid://b1cp4h35fiigq" path="res://Sounds/Music/track2.wav" id="1_hddmv"]
+[ext_resource type="AudioStream" uid="uid://cs5m0tmikl4b" path="res://Sounds/Voicelines/KF/KF_01.wav" id="2_a7k8v"]
+[ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="2_k3v3q"]
+[ext_resource type="AudioStream" uid="uid://bf3xlj4rjupss" path="res://Sounds/Voicelines/KF/KF_05.wav" id="3_8t1rd"]
+[ext_resource type="AudioStream" uid="uid://b6g0com2dxweq" path="res://Sounds/Voicelines/KF/KF_07.wav" id="4_gw0a1"]
+[ext_resource type="AudioStream" uid="uid://censdwxgmm7sk" path="res://Sounds/Voicelines/KF/KF_08.wav" id="5_jcvqk"]
+[ext_resource type="AudioStream" uid="uid://bj2jfd5l3o1ft" path="res://Sounds/Voicelines/KF/KF_10.wav" id="6_qxkid"]
+
+[resource]
+script = ExtResource("2_k3v3q")
+Name = "Fire Extinguisher"
+responses = Array[AudioStream]([ExtResource("2_a7k8v"), ExtResource("3_8t1rd"), ExtResource("4_gw0a1"), ExtResource("5_jcvqk"), ExtResource("6_qxkid")])
+music = ExtResource("1_hddmv")

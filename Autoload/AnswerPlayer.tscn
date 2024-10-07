@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwn817qkww70l"]
+
+[ext_resource type="Script" path="res://answer_player.gd" id="1_brbe2"]
+
+[node name="AnswerPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+bus = &"Voice"
+script = ExtResource("1_brbe2")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

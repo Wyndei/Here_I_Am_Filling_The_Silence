@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Friend" load_steps=8 format=3 uid="uid://chyeoi2wxi532"]
+
+[ext_resource type="AudioStream" uid="uid://c8xn3fa1nkcfs" path="res://Sounds/Music/track1.wav" id="1_txe4e"]
+[ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="2_4pk7u"]
+[ext_resource type="AudioStream" uid="uid://b8jlnss48ynaj" path="res://Sounds/Voicelines/CJ/CJ_01.wav" id="2_tj5l3"]
+[ext_resource type="AudioStream" uid="uid://byvcoeemr0u1a" path="res://Sounds/Voicelines/CJ/CJ_05.wav" id="3_t7d3j"]
+[ext_resource type="AudioStream" uid="uid://bexy3eex00n0q" path="res://Sounds/Voicelines/CJ/CJ_07.wav" id="4_dqjjs"]
+[ext_resource type="AudioStream" uid="uid://cm27sv1ciyr77" path="res://Sounds/Voicelines/CJ/CJ_08.wav" id="5_xcys1"]
+[ext_resource type="AudioStream" uid="uid://doxuhn1k1dr18" path="res://Sounds/Voicelines/CJ/CJ_10.wav" id="6_1ss04"]
+
+[resource]
+script = ExtResource("2_4pk7u")
+Name = "Book"
+responses = Array[AudioStream]([ExtResource("2_tj5l3"), ExtResource("3_t7d3j"), ExtResource("4_dqjjs"), ExtResource("5_xcys1"), ExtResource("6_1ss04")])
+music = ExtResource("1_txe4e")

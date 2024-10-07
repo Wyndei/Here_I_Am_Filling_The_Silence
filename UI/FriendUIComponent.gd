@@ -9,4 +9,4 @@ func _process(delta):
 	time += delta
 	
 	mesh.position.y = sin(time)*0.05
-	mesh.rotation.y = sin(time *0.5) * 0.25
+	mesh.rotation.y = sin(time) * 0.25

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Friend" load_steps=8 format=3 uid="uid://dn7nehe261adt"]
+
+[ext_resource type="AudioStream" uid="uid://bea7bclw2ulao" path="res://Sounds/Music/track4.wav" id="1_s3f63"]
+[ext_resource type="AudioStream" uid="uid://dcfherkp6qkuu" path="res://Sounds/Voicelines/RC/RC_01.wav" id="2_hei0c"]
+[ext_resource type="Script" path="res://Friends/Resources/Friend.gd" id="2_pcc1o"]
+[ext_resource type="AudioStream" uid="uid://cjou6v0oe0v1" path="res://Sounds/Voicelines/RC/RC_05.wav" id="3_jrcj7"]
+[ext_resource type="AudioStream" uid="uid://cwh6pk25nrnu6" path="res://Sounds/Voicelines/RC/RC_07.wav" id="4_17m5m"]
+[ext_resource type="AudioStream" uid="uid://cr41q4y380cb3" path="res://Sounds/Voicelines/RC/RC_08.wav" id="5_6swow"]
+[ext_resource type="AudioStream" uid="uid://gx7vlyr5g5wt" path="res://Sounds/Voicelines/RC/RC_10.wav" id="6_cdekj"]
+
+[resource]
+script = ExtResource("2_pcc1o")
+Name = "Mouse"
+responses = Array[AudioStream]([ExtResource("2_hei0c"), ExtResource("3_jrcj7"), ExtResource("4_17m5m"), ExtResource("5_6swow"), ExtResource("6_cdekj")])
+music = ExtResource("1_s3f63")
