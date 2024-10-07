@@ -47,9 +47,9 @@ void fragment() {
 	
 	vec3 sand = mix(sand_color,dark_tint,deform_value);
 	
-	SPECULAR = specular_value*0.5;
+	SPECULAR = specular_value*1.0;
 	ALBEDO = sand + wind_value * sand_color;
-	//NORMAL_MAP = normal_value*0.0;
+	//NORMAL_MAP = normal_value;
 	
 	//ALBEDO = vec3(texture(deformMask,UV).rgb);
 }

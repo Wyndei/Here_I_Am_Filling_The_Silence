@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://d0xue5beqlj58"]
+[gd_scene load_steps=53 format=4 uid="uid://d0xue5beqlj58"]
 
 [ext_resource type="Script" path="res://UI/friend_ui.gd" id="1_v5bo6"]
 [ext_resource type="Script" path="res://UI/FriendUIComponent.gd" id="2_7nbfw"]
@@ -19,6 +19,9 @@
 [ext_resource type="ArrayMesh" uid="uid://sox1mlto3kik" path="res://Friends/CarDoor/CarDoorMesh.tres" id="15_kh15c"]
 [ext_resource type="Resource" uid="uid://dk50mb52d64vm" path="res://Friends/Resources/Router.tres" id="16_s7m32"]
 [ext_resource type="Resource" uid="uid://dn7nehe261adt" path="res://Friends/Resources/Mouse.tres" id="18_0n5gw"]
+[ext_resource type="Texture2D" uid="uid://dqu3mrgyn3g4g" path="res://UI/SpeechBubble3.png" id="20_d34my"]
+[ext_resource type="Texture2D" uid="uid://do17p4qfmnf4a" path="res://UI/SpeechBubble2.png" id="21_4caw5"]
+[ext_resource type="Texture2D" uid="uid://brvlejskev7fg" path="res://UI/SpeechBubble1.png" id="22_bm8em"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e5tcp"]
 viewport_path = NodePath("SubViewport")
@@ -200,6 +203,23 @@ shader_parameter/color_gradient = SubResource("GradientTexture1D_py7dt")
 material = SubResource("ShaderMaterial_hm8me")
 size = Vector2(0.05, 0.05)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_iq4ye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_d34my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_4caw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bm8em")
+}],
+"loop": true,
+"name": &"Speech",
+"speed": 5.0
+}]
+
 [node name="FriendUI" type="Node3D"]
 script = ExtResource("1_v5bo6")
 
@@ -380,3 +400,12 @@ one_shot = true
 [node name="CameraTransform" type="RemoteTransform3D" parent="."]
 remote_path = NodePath("../SubViewport/Camera")
 update_scale = false
+
+[node name="SpeechBubble" type="AnimatedSprite2D" parent="."]
+position = Vector2(243, 170)
+scale = Vector2(0.515, 0.515)
+sprite_frames = SubResource("SpriteFrames_iq4ye")
+animation = &"Speech"
+frame = 1
+frame_progress = 0.0822267
+speed_scale = 0.2

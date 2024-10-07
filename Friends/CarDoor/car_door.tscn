@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgw5c8l7hwtgh"]
+[gd_scene load_steps=9 format=3 uid="uid://dgw5c8l7hwtgh"]
 
 [ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_n3v4l"]
 [ext_resource type="Resource" uid="uid://dhdk61fegj7eu" path="res://Friends/Resources/CarDoor.tres" id="2_xox8a"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="4_7jp2t"]
 [ext_resource type="Script" path="res://UI/map_marker.gd" id="5_1rnpo"]
 [ext_resource type="PackedScene" uid="uid://dmfh2vea4gno6" path="res://Friends/questions.tscn" id="6_3i0te"]
+[ext_resource type="AudioStream" uid="uid://ca3701qcvfxco" path="res://Sounds/SFX/sandwalking.wav" id="6_tvhtr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nm0vt"]
 size = Vector3(1.83447, 1.86713, 0.5)
@@ -41,5 +42,9 @@ script = ExtResource("5_1rnpo")
 [node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
 max_distance = 20.0
 bus = &"Music"
+
+[node name="SandSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_tvhtr")
+bus = &"SFX"
 
 [node name="Questions" parent="." instance=ExtResource("6_3i0te")]

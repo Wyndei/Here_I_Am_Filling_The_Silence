@@ -2,8 +2,12 @@ extends StaticBody3D
 
 @onready var questions : Node = $Questions
 
-@export var friend : Friend
+
 @onready var music_player = $MusicPlayer
+@onready var sand_sound = $SandSound
+
+
+@export var friend : Friend
 @onready var collision = $Collision
 
 var talking : bool = false
@@ -22,13 +26,13 @@ func interact(_target : Node) -> void:
 	collision.disabled = true
 	hide()
 	FriendUI.show_friend(friend)
-	MusicHandler.add_track()
 	music_player.stop()
-	
+
 
 func show_friend():
 	
 	talking = false
 	collision.disabled = false
 	questions.open = false
+	sand_sound.play()
 	show()

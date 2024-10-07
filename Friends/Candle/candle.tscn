@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cuqpf77slsrp"]
+[gd_scene load_steps=25 format=3 uid="uid://cuqpf77slsrp"]
 
 [ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_okofd"]
 [ext_resource type="Resource" uid="uid://d0q0onnromh4w" path="res://Friends/Resources/Candle.tres" id="2_e7o7h"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shader" path="res://VFX/CandleFire.gdshader" id="6_5jqex"]
 [ext_resource type="Texture2D" uid="uid://bfws553iot1kf" path="res://VFX/CandleFire.png" id="7_t4st1"]
 [ext_resource type="PackedScene" uid="uid://dmfh2vea4gno6" path="res://Friends/questions.tscn" id="10_ok3rl"]
+[ext_resource type="AudioStream" uid="uid://ca3701qcvfxco" path="res://Sounds/SFX/sandwalking.wav" id="10_prrxq"]
 
 [sub_resource type="Gradient" id="Gradient_m28g1"]
 interpolation_mode = 1
@@ -116,5 +117,9 @@ script = ExtResource("4_jh6w4")
 [node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
 max_distance = 20.0
 bus = &"Music"
+
+[node name="SandSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_prrxq")
+bus = &"SFX"
 
 [node name="Questions" parent="." instance=ExtResource("10_ok3rl")]

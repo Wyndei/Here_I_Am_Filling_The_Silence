@@ -18,6 +18,9 @@ var speed = 3.0
 
 @onready var left_click = $GUI/LeftClick
 
+@onready var quit_confirmation = $GUI/QuitConfirmation
+
+
 var crouched : bool = false
 
 var mouse_visible : bool = false
@@ -118,3 +121,10 @@ func interact():
 	
 func gain_friend(friend : Friend):
 	friend_collected.emit(friend)
+
+
+func close_game():
+	get_tree().quit()
+
+func end_game():
+	get_tree().change_scene_to_file("res://UI/videoScene.tscn")

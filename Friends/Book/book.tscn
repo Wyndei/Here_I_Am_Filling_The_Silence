@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbdxqcshmqbv1"]
+[gd_scene load_steps=9 format=3 uid="uid://bbdxqcshmqbv1"]
 
 [ext_resource type="Script" path="res://Friends/FriendOBJ.gd" id="1_m1872"]
 [ext_resource type="Resource" uid="uid://chyeoi2wxi532" path="res://Friends/Resources/Book.tres" id="2_os2db"]
 [ext_resource type="ArrayMesh" uid="uid://b2wu7loit6xud" path="res://Friends/Book/bookMesh.tres" id="3_p5tqc"]
 [ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="4_gnfd7"]
 [ext_resource type="Script" path="res://UI/map_marker.gd" id="5_w67vm"]
+[ext_resource type="AudioStream" uid="uid://ca3701qcvfxco" path="res://Sounds/SFX/sandwalking.wav" id="6_4h1tw"]
 [ext_resource type="PackedScene" uid="uid://dmfh2vea4gno6" path="res://Friends/questions.tscn" id="6_o0gug"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1d8x"]
@@ -40,6 +41,11 @@ script = ExtResource("5_w67vm")
 
 [node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
 max_distance = 20.0
+panning_strength = 5.0
 bus = &"Music"
+
+[node name="SandSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_4h1tw")
+bus = &"SFX"
 
 [node name="Questions" parent="." instance=ExtResource("6_o0gug")]

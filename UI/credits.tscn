@@ -1,0 +1,227 @@
+[gd_scene load_steps=2 format=3 uid="uid://emxm6rh0x7hm"]
+
+[ext_resource type="Script" path="res://UI/credits.gd" id="1_grm24"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_grm24")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.5
+offset_top = -245.0
+offset_right = 294.5
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin4" type="MarginContainer" parent="ColorRect/VBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="Development" type="Label" parent="ColorRect/VBox"]
+layout_mode = 2
+text = "Developers:"
+
+[node name="Margin" type="MarginContainer" parent="ColorRect/VBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="DeveloperCredits" type="VBoxContainer" parent="ColorRect/VBox"]
+layout_mode = 2
+
+[node name="Programming" type="HBoxContainer" parent="ColorRect/VBox/DeveloperCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/DeveloperCredits/Programming"]
+layout_mode = 2
+text = "Programming - "
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/DeveloperCredits/Programming"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Nick Mason, Kyle Chiasson"
+
+[node name="Art" type="HBoxContainer" parent="ColorRect/VBox/DeveloperCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/DeveloperCredits/Art"]
+layout_mode = 2
+text = "Art - "
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/DeveloperCredits/Art"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Nick Mason"
+
+[node name="Interviews" type="HBoxContainer" parent="ColorRect/VBox/DeveloperCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/DeveloperCredits/Interviews"]
+layout_mode = 2
+text = "Interviews - "
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/DeveloperCredits/Interviews"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Caleb Smiley"
+
+[node name="Video" type="HBoxContainer" parent="ColorRect/VBox/DeveloperCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/DeveloperCredits/Video"]
+layout_mode = 2
+text = "Video - "
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/DeveloperCredits/Video"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Caleb Smiley"
+
+[node name="Music" type="HBoxContainer" parent="ColorRect/VBox/DeveloperCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/DeveloperCredits/Music"]
+layout_mode = 2
+text = "Music - "
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/DeveloperCredits/Music"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Raven Werry"
+
+[node name="SFX" type="HBoxContainer" parent="ColorRect/VBox/DeveloperCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/DeveloperCredits/SFX"]
+layout_mode = 2
+text = "SFX - "
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/DeveloperCredits/SFX"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Raven Werry"
+
+[node name="Margin3" type="MarginContainer" parent="ColorRect/VBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="Friends" type="Label" parent="ColorRect/VBox"]
+layout_mode = 2
+text = "Friends:"
+
+[node name="Margin2" type="MarginContainer" parent="ColorRect/VBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="FriendCredits" type="VBoxContainer" parent="ColorRect/VBox"]
+layout_mode = 2
+
+[node name="Book" type="HBoxContainer" parent="ColorRect/VBox/FriendCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/FriendCredits/Book"]
+layout_mode = 2
+text = "Book -"
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/FriendCredits/Book"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Chris Joecken"
+
+[node name="FireExtinguisher" type="HBoxContainer" parent="ColorRect/VBox/FriendCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/FriendCredits/FireExtinguisher"]
+layout_mode = 2
+text = "Fire Extinguisher -"
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/FriendCredits/FireExtinguisher"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Kat Frazier"
+
+[node name="Candle" type="HBoxContainer" parent="ColorRect/VBox/FriendCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/FriendCredits/Candle"]
+layout_mode = 2
+text = "Candle -"
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/FriendCredits/Candle"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Audrey Schlembach"
+
+[node name="Mouse" type="HBoxContainer" parent="ColorRect/VBox/FriendCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/FriendCredits/Mouse"]
+layout_mode = 2
+text = "Mouse -"
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/FriendCredits/Mouse"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Roesemary Charway"
+
+[node name="CarDoor" type="HBoxContainer" parent="ColorRect/VBox/FriendCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/FriendCredits/CarDoor"]
+layout_mode = 2
+text = "Car Door - "
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/FriendCredits/CarDoor"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Barry Herbers"
+
+[node name="WifiRouter" type="HBoxContainer" parent="ColorRect/VBox/FriendCredits"]
+layout_mode = 2
+
+[node name="Role" type="Label" parent="ColorRect/VBox/FriendCredits/WifiRouter"]
+layout_mode = 2
+text = "Wifi Router - "
+
+[node name="Credit" type="Label" parent="ColorRect/VBox/FriendCredits/WifiRouter"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Daniel Hickman"
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -117.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Close"
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

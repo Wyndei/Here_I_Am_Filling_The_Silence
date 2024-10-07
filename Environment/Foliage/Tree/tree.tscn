@@ -29,6 +29,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="Collision" type="CollisionShape3D" parent="PlayerCheck"]
+visible = false
 shape = SubResource("SphereShape3D_ml8jn")
 
 [connection signal="body_entered" from="PlayerCheck" to="." method="_on_player_check_body_entered"]

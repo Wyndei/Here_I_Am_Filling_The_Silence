@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddr5uibpboafl"]
+[gd_scene load_steps=24 format=3 uid="uid://ddr5uibpboafl"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_qhetf"]
 [ext_resource type="AudioStream" uid="uid://ca3701qcvfxco" path="res://Sounds/SFX/sandwalking.wav" id="2_01y4q"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnlkdn2iq35bu" path="res://VFX/BlurCircleMask.png" id="5_gbutn"]
 [ext_resource type="Script" path="res://Scenes/Player/foot_steps.gd" id="5_p7xcw"]
 [ext_resource type="Script" path="res://UI/map_marker.gd" id="6_7gs45"]
+[ext_resource type="PackedScene" uid="uid://dykc646b3hyg" path="res://UI/quit_confirmation.tscn" id="6_q7feg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gpcct"]
 radius = 0.35
@@ -178,8 +179,115 @@ _data = {
 shader = ExtResource("3_7iiy1")
 shader_parameter/alpha = 1.0
 
-[sub_resource type="Animation" id="Animation_ogje8"]
+[sub_resource type="Animation" id="Animation_ko18k"]
 resource_name = "Asleepen"
+length = 1.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/alpha")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CameraPivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../CameraPivot/Camera:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [75.0, 50.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"close_game"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_es3ay"]
+resource_name = "Asleepen_End"
+length = 1.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/alpha")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CameraPivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../CameraPivot/Camera:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [75.0, 50.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_game"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_skro6"]
 resource_name = "Awaken"
@@ -261,7 +369,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7041i"]
 _data = {
-"Asleepen": SubResource("Animation_ogje8"),
+"Asleepen": SubResource("Animation_ko18k"),
+"Asleepen_End": SubResource("Animation_es3ay"),
 "Awaken": SubResource("Animation_skro6"),
 "RESET": SubResource("Animation_yj3lt")
 }
@@ -328,6 +437,9 @@ pivot_offset = Vector2(64, 64)
 texture = ExtResource("4_43bjq")
 expand_mode = 2
 stretch_mode = 3
+
+[node name="QuitConfirmation" parent="GUI" node_paths=PackedStringArray("ap") instance=ExtResource("6_q7feg")]
+ap = NodePath("../Eye/EyeAnim")
 
 [node name="Footsteps" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.8, 0)

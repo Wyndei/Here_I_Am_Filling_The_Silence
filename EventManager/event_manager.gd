@@ -1,8 +1,11 @@
 extends Node
 
 @export var player : Node
+var quit_menu : Node
+
 
 @onready var dist_label = $DistLabel
+
 
 
 #flags
@@ -14,7 +17,7 @@ var car_door : bool = false
 var router : bool = false
 var mouse : bool = false
 
-var flag_count : int = 0
+@export var flag_count : int = 0
 
 const TREE = preload("res://Environment/Foliage/Tree/tree.tscn")
 
@@ -30,6 +33,7 @@ var player_distance : float = 0.0
 
 func _ready():
 	player.friend_collected.connect(friend_found)
+	quit_menu = player.quit_confirmation
 
 func _on_player_distance_traveled(distance : float):
 	player_distance+=distance
@@ -40,36 +44,37 @@ func _on_player_distance_traveled(distance : float):
 		spawn_object(BOOK)
 		#spawn_object(TREE) #doesn't spawn a tree, the tree has already been spawned
 		book = true
+		
 	
-	if player_distance >= 75 and flag_count >= 1 and !fire_extinguisher:
+	if player_distance >= 100 and flag_count >= 1 and !fire_extinguisher:
 		spawn_object(FIRE_EXTINGUISHER)
 		spawn_object(TREE)
 		fire_extinguisher = true
 	
-	if player_distance >= 100 and flag_count >= 2 and !candle:
+	if player_distance >= 300 and flag_count >= 2 and !candle:
 		spawn_object(CANDLE)
 		spawn_object(TREE)
 		candle = true
 	
-	if player_distance >= 150 and flag_count >= 3 and !mouse:
+	if player_distance >= 500 and flag_count >= 3 and !mouse:
 		spawn_object(MOUSE)
 		spawn_object(TREE)
 		mouse = true
 	
-	if player_distance >= 250 and flag_count >= 4 and !car_door:
+	if player_distance >= 750 and flag_count >= 4 and !car_door:
 		spawn_object(CAR_DOOR)
 		spawn_object(TREE)
 		car_door = true
 	
 	
-	if player_distance >= 300 and flag_count >= 5 and !router:
+	if player_distance >= 1000 and flag_count >= 5 and !router:
 		spawn_object(ROUTER)
 		spawn_object(TREE)
 		router = true
 		
 	
 	if flag_count >= 6:
-		MusicHandler.add_track()
+		pass
 
 
 func spawn_object(object : PackedScene):
@@ -87,8 +92,21 @@ func spawn_object(object : PackedScene):
 	object_instance.rotation.y = object_rotation
 
 
-func spawn_tree():
-	pass
 
-func friend_found(_friend : Friend):
-	flag_count += 1
+var friends : Array[Friend]
+
+func friend_found(new_friend : Friend):
+	var has_friend : bool = false
+	
+	for friend in friends:
+		if friend == new_friend:
+			has_friend = true
+	
+	if not has_friend:
+		friends.append(new_friend)
+		flag_count += 1
+		quit_menu.flag_count = flag_count
+		
+		MusicHandler.add_track()
+		
+		
